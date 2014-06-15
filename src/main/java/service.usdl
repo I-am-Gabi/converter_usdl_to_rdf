@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usdl:USDL3Document xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:foundation="http://internet-of-services.com/usdl/foundation" xmlns:pricing="http://internet-of-services.com/usdl/modules/pricing" xmlns:usdl="http://internet-of-services.com/usdl/20110228-M5" resourceID="559a0944-6c86-4a8e-a3ce-14e7da7653ca">
+  <services xmi:id="Service_10428126" resourceID="ed036c0d-1c6a-4443-8a09-6e1168d117f5" version="1" nature="Other">
+    <names xmi:id="Description_32694727" value="Standard (M1) - Small (default)" type="name"/>
+    <publicationTime xsi:type="foundation:AbsolutePointInTime" xmi:id="AbsolutePointInTime_12906128" value="2013-04-28T06:00:01.000-0300"/>
+    <provider xmi:id="Provider_7857925" enactingAgent="Organization_3456701"/>
+    <pricePlans xmi:id="PricePlan_6195595" currency="US$">
+      <names xmi:id="Description_18907000" value="Cost" type="name"/>
+      <planComponents xmi:id="PriceComponent_29679371">
+        <names xmi:id="Description_29058435" value="Cost" type="name"/>
+        <componentLevels xsi:type="pricing:AbsolutePriceLevel" xmi:id="AbsolutePriceLevel_24026461" absoluteAmount="0.08"/>
+      </planComponents>
+      <effectiveFrom xsi:type="foundation:AbsolutePointInTime" xmi:id="AbsolutePointInTime_22644493" value="2013-04-28T06:03:03.000-0300"/>
+    </pricePlans>
+    <capabilities xmi:id="Function_31587000">
+      <names xmi:id="Description_10028786" value="CPU" type="name"/>
+      <descriptions xmi:id="Description_27496835" value="1 EC2 Compute Unit (1 virtual core with 1 EC2 Compute Unit)" type="freetextShort"/>
+    </capabilities>
+    <capabilities xmi:id="Function_17281886">
+      <names xmi:id="Description_22352160" value="RAM" type="name"/>
+      <descriptions xmi:id="Description_7141484" value="1.7" type="name"/>
+    </capabilities>
+    <capabilities xmi:id="Function_25903122">
+      <names xmi:id="Description_15762734" value="Platform" type="name"/>
+      <descriptions xmi:id="Description_32520520" value="32-bit" type="freetextShort"/>
+    </capabilities>
+    <capabilities xmi:id="Function_3716546">
+      <names xmi:id="Description_1560012" value="Storage" type="name"/>
+      <descriptions xmi:id="Description_13116869" value="160" type="name"/>
+    </capabilities>
+    <capabilities xmi:id="Function_6658041">
+      <names xmi:id="Description_18890226" value="I/O Performance" type="name"/>
+      <descriptions xmi:id="Description_29554468" value="Moderate" type="name"/>
+    </capabilities>
+    <capabilities xmi:id="Function_21076530">
+      <names xmi:id="Description_27737756" value="EBS-Optimized Available" type="name"/>
+      <descriptions xmi:id="Description_31399280" value="false" type="freetextShort"/>
+    </capabilities>
+    <capabilities xmi:id="Function_20617463">
+      <names xmi:id="Description_22880738" value="Cost" type="name"/>
+      <descriptions xmi:id="Description_22783529" value="0.08" type="freetextShort"/>
+    </capabilities>
+    <capabilities xmi:id="Function_6598158">
+      <names xmi:id="Description_16693752" value="OS" type="name"/>
+      <descriptions xmi:id="Description_676393" value="Linux/UNIX" type="name"/>
+    </capabilities>
+  </services>
+  <agents xsi:type="foundation:Organization" xmi:id="Organization_3456701" resourceID="48631e10-6c0b-40e7-9ff1-6281846d27c4">
+    <names xmi:id="Description_31717169" value="Amazon" type="name"/>
+  </agents>
+</usdl:USDL3Document>
