@@ -8,8 +8,8 @@
 # Ignorar todos os diretórios e arquivos em um diretório.
 tmp/**/* 
 
-*.project
+.project
 
-*.classpath
+.classpath
 
-*.settings
+.settings
