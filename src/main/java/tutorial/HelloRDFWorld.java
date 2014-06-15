@@ -42,7 +42,7 @@ public class HelloRDFWorld {
 	// public final static String USDL_Core_Schema_File = "./usdl-core.ttl";
 	// public final static String USDL_Price_Schema_File = "./usdl-price.ttl";
 
-	static final String inputFileName = "./service";
+	//static final String inputFileName = "./service";
 	static final String outputFileName = "./src/main/java/service_final.ttl";
 
 	public static void main(String args[]) throws IOException {
@@ -55,7 +55,8 @@ public class HelloRDFWorld {
 		m.put("usdl", new XMIResourceFactoryImpl());
 
 		ResourceSet resSet = new ResourceSetImpl();
-
+		
+		//create resource with the doc USDL
 		Resource resource = resSet.getResource(
 				URI.createURI("src/main/java/service.usdl"), true);
 
@@ -67,10 +68,12 @@ public class HelloRDFWorld {
 
 		model = project.populateUSDLmodel(model, document);
 
-		// project.displayUSDLmodel(model, "TTL");
+		//output as TTL
+		project.displayUSDLmodel(model, "TTL");
 
 		project.writeUSDLmodeltoFile(model, outputFileName, "TTL");
 
+		//output as turtle rdf
 		project.writeModel(model);
 
 		/*
