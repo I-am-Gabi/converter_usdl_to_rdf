@@ -62,7 +62,7 @@ public class HelloRDFWorld {
 
 		USDL3Document document = (USDL3Document) resource.getContents().get(0);
 
-		// --------------------------------------------------------- //
+		// ----------------------------------------------------------------------------- //
 
 		Model model = ModelFactory.createDefaultModel();
 
@@ -70,43 +70,47 @@ public class HelloRDFWorld {
 
 		//output as TTL
 		project.displayUSDLmodel(model, "TTL");
-
+		
+		//write model usdl in file .ttl
 		project.writeUSDLmodeltoFile(model, outputFileName, "TTL");
 
 		//output as turtle rdf
 		project.writeModel(model);
 
-		/*
-		 * OutputStream out = new FileOutputStream(outputFileName);
-		 * out.write(prefix.getBytes()); out.close(); OutputStream add = new
-		 * FileOutputStream(outputFileName, true); model.write(add, "TTL");
-		 */
-
 	}
 
 	public Model populateUSDLmodel(Model model, USDL3Document document) {
-		// nome do serviço
+		// Service name
 		String Name = document.getServices().get(0).getNames().get(0)
 				.getValue();
 
-		// crio o serviço com o nome recuperado
+		// create the service with the name returned
 		com.hp.hpl.jena.rdf.model.Resource service = model.createResource(Name);
 
 		for (int i = 0; i < 8; i++) {
-			// nome da propriedade
+			// property name
 			String nameProperty = (document.getServices().get(0)
 					.getCapabilities().get(i).getNames().get(0).getValue())
 					.replace(" ", "").replace("/", "");
 
-			// crio uma propriedade
-			Property p = model.createProperty(RDF + nameProperty);
+			// create property white its name
+			Property p = model.createProperty(RDFS + nameProperty);
 
-			// descrição da propriedade
+			// create property description
 			String property = document.getServices().get(0).getCapabilities()
 					.get(i).getDescriptions().get(0).getValue();
 
-			// add a propriedade e sua descrição no serviço
-			service.addProperty(p, property, XSDDatatype.XSDstring);
+			try {
+				float pro = Float.parseFloat(property);
+				service.addProperty(p, property, XSDDatatype.XSDfloat);
+			} catch (NumberFormatException e) {
+				if (property.equals("true") || property.equals("false")) {
+					service.addProperty(p, property, XSDDatatype.XSDboolean);
+				} else {
+					service.addProperty(p, property, XSDDatatype.XSDstring);
+				}
+			}
+
 		}
 
 		return model;
@@ -161,10 +165,14 @@ public class HelloRDFWorld {
 			RDFNode object = stmt.getObject(); // get the object
 
 			System.out.print(subject.toString());
+
+			// show name property
 			System.out.print(" " + predicate.getLocalName().toString() + ": ");
-			// System.out.print(" \"-------" + object.toString());
+
+			// show property
 			System.out.println(StringUtils.substringBetween(object.toString(),
 					"", "^"));
 		}
 	}
+
 }
